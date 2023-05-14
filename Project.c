@@ -34,7 +34,7 @@ void led_output(unsigned char data){
 void UART2_initialization(){
   SYSCTL_RCGCUART_R|=0x04;                 //enable UART2
   SYSCTL_RCGCGPIO_R|=0x08;                //enable gpio clk
-  while((SYSCTL_PRGPIO_R & 0x08)==0);
+  while((SYSCTL_PRGPIO_R & 0x08)==0);     //wait 
   UART2_CTL_R&=~0x0001;                    //disable UART2 at beginning
   UART2_IBRD_R=104;
   UART2_FBRD_R=11;
